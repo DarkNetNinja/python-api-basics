@@ -39,6 +39,7 @@ url = "https://jsonplaceholder.typicode.com/users/1"
 response = requests.get(url)
 
 # Convert response to Python dictionary
+print(response.json())
 data = response.json()
 
 # Access specific fields
@@ -47,6 +48,8 @@ print(f"Username: {data['username']}")
 print(f"Email: {data['email']}")
 print(f"City: {data['address']['city']}")
 print(f"Company: {data['company']['name']}")
+print(f"{data['id']}")
+print(f"{data['company']['bs']}")
 
 
 # Example 4: Working with a list of items
@@ -74,6 +77,26 @@ status_codes = {
 
 for code, meaning in status_codes.items():
     print(f"  {code}: {meaning}")
+
+url = "https://jsonplaceholder.typicode.com/users/566"
+response = requests.get(url)
+
+if response.status_code == 200:
+    user_data = response.json()
+    print(f"{user_data['phone']}")
+else:
+    print("resource not found")
+
+url = "https://jsonplaceholder.typicode.com/posts/1/comments"
+response  = requests.get(url)
+comments = response.json()
+count = 0
+for comment in comments:
+    print(comment)
+    count += 1
+
+print(count)
+
 
 
 # --- EXERCISES ---
