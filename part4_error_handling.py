@@ -11,6 +11,14 @@ Learn:
 """
 
 import requests
+import time
+import logging
+logging.basicConfig(
+    
+    level = logging.INFO,
+    format = '%(asctime)s - %(levelname)s -%(message)s',
+    datefmt = '%H:%M:%S'
+)
 from requests.exceptions import (
     ConnectionError,
     Timeout,
@@ -19,27 +27,52 @@ from requests.exceptions import (
 )
 
 
-def safe_api_request(url, timeout=5):
-    """Make an API request with proper error handling."""
-    try:
-        response = requests.get(url, timeout=timeout)
 
-        # Raise exception for bad status codes (4xx, 5xx)
-        response.raise_for_status()
+import requests
+from requests.exceptions import ConnectionError, Timeout, HTTPError, RequestException
 
-        return {"success": True, "data": response.json()}
+def safe_api_request(url, timeout=5,max_retries = 3):
+    """
+    Make a single API request with error handling.
+    No retries. Returns a dictionary with success status.
+    """
+    for attempt in range(1,max_retries+1):
+        try:
+            logging.info(f"Attempt {attempt} Connecting to {url}...")
+            
+            # 1. Single Attempt
+            response = requests.get(url, timeout=timeout)
+            if response.status_code == 200:
+                logging.info(f"success! Data recieved from {url}")
+            
 
-    except ConnectionError:
-        return {"success": False, "error": "Connection failed. Check your internet."}
+            # 3. Success!
+                return {"success": True, "data": response.json()}
+            else:
+                response.raise_for_status()
 
-    except Timeout:
-        return {"success": False, "error": f"Request timed out after {timeout} seconds."}
+        except RequestException as e:
+            logging.warning(f"Attempt {attempt} failed: {e}")
 
-    except HTTPError as e:
-        return {"success": False, "error": f"HTTP Error: {e.response.status_code}"}
+            if attempt < max_retries:
+                time.sleep(2)
+            else:
+            # Catch-all for any other weird errors
+                logging.error(f"All tries failed")
 
-    except RequestException as e:
-        return {"success": False, "error": f"Request failed: {str(e)}"}
+                if isinstance(e,ConnectionError):
+                    return {"success": False, "error": "Connection failed. Check your internet."}
+                elif isinstance(e,Timeout):
+                    return {"success": False, "error": f"Request timed out after {timeout} seconds."}
+                elif isinstance(e,HTTPError):
+                    return {"success": False, "error": f"HTTP Error: {e.response.status_code}"}
+                else:
+                    return {"success":False, "error":f"Request failed: {str(e)}"}
+        return {"success": False, "error": "Unknown error occurred."}
+
+
+                
+        
 
 
 def demo_error_handling():
@@ -94,12 +127,17 @@ def fetch_crypto_safely():
 
     if result["success"]:
         data = result["data"]
-        print(f"\n{data['name']} ({data['symbol']})")
-        print(f"Price: ${data['quotes']['USD']['price']:,.2f}")
-        print(f"24h Change: {data['quotes']['USD']['percent_change_24h']:+.2f}%")
+
+        if validate_crypto_data(data):
+            print(f"\n{data['name']} ({data['symbol']})")
+            print(f"Price: ${data['quotes']['USD']['price']:,.2f}")
+            print(f"24h Change: {data['quotes']['USD']['percent_change_24h']:+.2f}%")
+        else:
+            print(f"\nError: {result['error']}")
+            print("Tip: Try 'btc-bitcoin' or 'eth-ethereum'")
+
     else:
         print(f"\nError: {result['error']}")
-        print("Tip: Try 'btc-bitcoin' or 'eth-ethereum'")
 
 
 def validate_json_response():
@@ -130,6 +168,24 @@ def validate_json_response():
 
     except Exception as e:
         print(f"Error: {e}")
+
+def validate_crypto_data(data):
+    if "quotes" not in data:
+        print("API response is missing quotes section")
+        return False
+    
+    if "USD" not in data["quotes"]:
+        print("API response is missing USD price data")
+        return False
+    
+    if "price" not in data["quotes"]["USD"]:
+        print("Error: Price info is missing")
+        return False
+    
+    return True
+    
+
+
 
 
 def main():
