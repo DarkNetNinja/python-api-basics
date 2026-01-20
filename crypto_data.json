@@ -1,0 +1,322 @@
+[
+    {
+        "id": "btc-bitcoin",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "rank": 1,
+        "total_supply": 19978447,
+        "max_supply": 21000000,
+        "beta_value": 0.864218,
+        "first_data_at": "2010-07-17T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 90693.89001353584,
+                "volume_24h": 33612626414.946438,
+                "volume_24h_change_24h": -0.74,
+                "market_cap": 1811923346941,
+                "market_cap_change_24h": -2.69,
+                "percent_change_15m": 0.25,
+                "percent_change_30m": 0.81,
+                "percent_change_1h": -0.34,
+                "percent_change_6h": -0.29,
+                "percent_change_12h": -1.85,
+                "percent_change_24h": -2.7,
+                "percent_change_7d": -2.89,
+                "percent_change_30d": 0.46,
+                "percent_change_1y": -12.19,
+                "ath_price": 126173.1777846797,
+                "ath_date": "2025-10-06T19:00:40Z",
+                "percent_from_price_ath": -28.17
+            }
+        }
+    },
+    {
+        "id": "eth-ethereum",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "rank": 2,
+        "total_supply": 120232214,
+        "max_supply": 0,
+        "beta_value": 1.46887,
+        "first_data_at": "2015-08-07T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 3032.183595519492,
+                "volume_24h": 19993309801.56315,
+                "volume_24h_change_24h": -8.64,
+                "market_cap": 365154699844,
+                "market_cap_change_24h": -5.82,
+                "percent_change_15m": 0.19,
+                "percent_change_30m": 1,
+                "percent_change_1h": -1.21,
+                "percent_change_6h": -1.97,
+                "percent_change_12h": -4.9,
+                "percent_change_24h": -5.82,
+                "percent_change_7d": -4.72,
+                "percent_change_30d": -0.47,
+                "percent_change_1y": -7.14,
+                "ath_price": 4946.229669645212,
+                "ath_date": "2025-08-24T19:24:38Z",
+                "percent_from_price_ath": -38.76
+            }
+        }
+    },
+    {
+        "id": "usdt-tether",
+        "name": "Tether",
+        "symbol": "USDT",
+        "rank": 3,
+        "total_supply": 177420277588,
+        "max_supply": 0,
+        "beta_value": -0.00240493,
+        "first_data_at": "2015-02-25T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 0.9994817369295435,
+                "volume_24h": 64604851313.52198,
+                "volume_24h_change_24h": -9.59,
+                "market_cap": 177328327210,
+                "market_cap_change_24h": -0.03,
+                "percent_change_15m": 0.01,
+                "percent_change_30m": -0.02,
+                "percent_change_1h": 0,
+                "percent_change_6h": 0.02,
+                "percent_change_12h": 0,
+                "percent_change_24h": -0.03,
+                "percent_change_7d": 0.02,
+                "percent_change_30d": -0.02,
+                "percent_change_1y": 0.07,
+                "ath_price": 1.21549,
+                "ath_date": "2015-02-25T17:04:00Z",
+                "percent_from_price_ath": -17.77
+            }
+        }
+    },
+    {
+        "id": "bnb-binance-coin",
+        "name": "BNB",
+        "symbol": "BNB",
+        "rank": 4,
+        "total_supply": 139184442,
+        "max_supply": 200000000,
+        "beta_value": 0.865611,
+        "first_data_at": "2017-07-25T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 903.2416207888223,
+                "volume_24h": 1516564900.209464,
+                "volume_24h_change_24h": -20.78,
+                "market_cap": 125717180981,
+                "market_cap_change_24h": -2.47,
+                "percent_change_15m": -0.03,
+                "percent_change_30m": 0.53,
+                "percent_change_1h": -0.49,
+                "percent_change_6h": -1.07,
+                "percent_change_12h": -2.68,
+                "percent_change_24h": -2.47,
+                "percent_change_7d": -1.85,
+                "percent_change_30d": 4.09,
+                "percent_change_1y": 32.11,
+                "ath_price": 1370.9838437844724,
+                "ath_date": "2025-10-13T09:00:44Z",
+                "percent_from_price_ath": -34.17
+            }
+        }
+    },
+    {
+        "id": "xrp-xrp",
+        "name": "XRP",
+        "symbol": "XRP",
+        "rank": 5,
+        "total_supply": 99985727631,
+        "max_supply": 100000000000,
+        "beta_value": 1.43265,
+        "first_data_at": "2013-08-04T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 1.9162932629825442,
+                "volume_24h": 2811913129.7137146,
+                "volume_24h_change_24h": -18.19,
+                "market_cap": 116490506892,
+                "market_cap_change_24h": -4.25,
+                "percent_change_15m": -0.35,
+                "percent_change_30m": 0.14,
+                "percent_change_1h": -0.77,
+                "percent_change_6h": -0.39,
+                "percent_change_12h": -2.28,
+                "percent_change_24h": -4.25,
+                "percent_change_7d": -8.99,
+                "percent_change_30d": -0.81,
+                "percent_change_1y": -37.92,
+                "ath_price": 3.84194,
+                "ath_date": "2018-01-04T07:14:00Z",
+                "percent_from_price_ath": -50.17
+            }
+        }
+    },
+    {
+        "id": "usdc-usd-coin",
+        "name": "USDC",
+        "symbol": "USDC",
+        "rank": 6,
+        "total_supply": 75504354284,
+        "max_supply": 0,
+        "beta_value": -0.00439823,
+        "first_data_at": "2018-10-09T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:28Z",
+        "quotes": {
+            "USD": {
+                "price": 1.0003570789666267,
+                "volume_24h": 13398751582.186932,
+                "volume_24h_change_24h": 9.33,
+                "market_cap": 75434373617,
+                "market_cap_change_24h": -0.57,
+                "percent_change_15m": -0.01,
+                "percent_change_30m": 0,
+                "percent_change_1h": 0.02,
+                "percent_change_6h": 0.01,
+                "percent_change_12h": 0.03,
+                "percent_change_24h": 0.01,
+                "percent_change_7d": 0.05,
+                "percent_change_30d": 0.04,
+                "percent_change_1y": 0.06,
+                "ath_price": 1.90619801,
+                "ath_date": "2018-10-11T06:35:00Z",
+                "percent_from_price_ath": -47.52
+            }
+        }
+    },
+    {
+        "id": "sol-solana",
+        "name": "Solana",
+        "symbol": "SOL",
+        "rank": 7,
+        "total_supply": 588682058,
+        "max_supply": 0,
+        "beta_value": 1.57744,
+        "first_data_at": "2020-08-26T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:28Z",
+        "quotes": {
+            "USD": {
+                "price": 127.96521107797345,
+                "volume_24h": 3644518682.9173083,
+                "volume_24h_change_24h": -17.32,
+                "market_cap": 72375025780,
+                "market_cap_change_24h": -4.4,
+                "percent_change_15m": -0.24,
+                "percent_change_30m": 0.38,
+                "percent_change_1h": -0.94,
+                "percent_change_6h": -0.72,
+                "percent_change_12h": -4.8,
+                "percent_change_24h": -4.4,
+                "percent_change_7d": -11.02,
+                "percent_change_30d": 0.86,
+                "percent_change_1y": -45.94,
+                "ath_price": 294.1631972172844,
+                "ath_date": "2025-01-19T11:17:03Z",
+                "percent_from_price_ath": -56.5
+            }
+        }
+    },
+    {
+        "id": "steth-lido-staked-ether",
+        "name": "Lido Staked Ether",
+        "symbol": "STETH",
+        "rank": 8,
+        "total_supply": 9785853,
+        "max_supply": 0,
+        "beta_value": 1.47087,
+        "first_data_at": "2021-08-12T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:28Z",
+        "quotes": {
+            "USD": {
+                "price": 3039.485612131981,
+                "volume_24h": 17414177.95134482,
+                "volume_24h_change_24h": -64.12,
+                "market_cap": 29769934840,
+                "market_cap_change_24h": -5.62,
+                "percent_change_15m": 0.28,
+                "percent_change_30m": 1.22,
+                "percent_change_1h": -1.12,
+                "percent_change_6h": -1.63,
+                "percent_change_12h": -4.68,
+                "percent_change_24h": -5.62,
+                "percent_change_7d": -4.28,
+                "percent_change_30d": -0.09,
+                "percent_change_1y": -6.7,
+                "ath_price": 4930.286952501686,
+                "ath_date": "2025-08-24T19:24:38Z",
+                "percent_from_price_ath": -38.39
+            }
+        }
+    },
+    {
+        "id": "trx-tron",
+        "name": "TRON",
+        "symbol": "TRX",
+        "rank": 9,
+        "total_supply": 86363124686,
+        "max_supply": 0,
+        "beta_value": 0.441882,
+        "first_data_at": "2017-09-13T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 0.2984828558976889,
+                "volume_24h": 798632262.6583462,
+                "volume_24h_change_24h": -6.17,
+                "market_cap": 25777963982,
+                "market_cap_change_24h": -3.63,
+                "percent_change_15m": -0.07,
+                "percent_change_30m": -0.1,
+                "percent_change_1h": -1.21,
+                "percent_change_6h": -1.6,
+                "percent_change_12h": -3.85,
+                "percent_change_24h": -3.63,
+                "percent_change_7d": -0.93,
+                "percent_change_30d": 6.46,
+                "percent_change_1y": 25.41,
+                "ath_price": 0.4404408234447792,
+                "ath_date": "2024-12-04T00:12:23Z",
+                "percent_from_price_ath": -32.25
+            }
+        }
+    },
+    {
+        "id": "doge-dogecoin",
+        "name": "Dogecoin",
+        "symbol": "DOGE",
+        "rank": 10,
+        "total_supply": 148311776384,
+        "max_supply": 0,
+        "beta_value": 1.77231,
+        "first_data_at": "2013-12-15T00:00:00Z",
+        "last_updated": "2026-01-20T15:35:27Z",
+        "quotes": {
+            "USD": {
+                "price": 0.12516228171333477,
+                "volume_24h": 1064604288.1316191,
+                "volume_24h_change_24h": -46.27,
+                "market_cap": 18667665992,
+                "market_cap_change_24h": -2.61,
+                "percent_change_15m": -0.19,
+                "percent_change_30m": 0.39,
+                "percent_change_1h": -1,
+                "percent_change_6h": -0.42,
+                "percent_change_12h": -2.37,
+                "percent_change_24h": -2.61,
+                "percent_change_7d": -12.49,
+                "percent_change_30d": -6.22,
+                "percent_change_1y": -66.06,
+                "ath_price": 0.75287027,
+                "ath_date": "2021-05-08T05:00:00Z",
+                "percent_from_price_ath": -83.4
+            }
+        }
+    }
+]

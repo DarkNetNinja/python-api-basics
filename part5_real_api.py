@@ -12,6 +12,7 @@ Learn:
 
 import requests
 from datetime import datetime
+import json
 
 
 # City coordinates (latitude, longitude)
@@ -26,6 +27,9 @@ CITIES = {
     "london": (51.5074, -0.1278),
     "tokyo": (35.6762, 139.6503),
     "sydney": (-33.8688, 151.2093),
+    "shibuya":(35.6617,139.7040),
+    "Pune":(18.5204,73.8567)
+
 }
 
 # Popular cryptocurrencies
@@ -183,6 +187,111 @@ def display_top_cryptos():
 
     print(f"{'=' * 55}")
 
+def price_compare():
+    print("Enter the name of coins you want to compare,seperated by comma")
+    print("Enter:bitcoin,ethereum,dgecoin")
+
+    user_input = input("\nYour choice: ").strip()
+
+    if not user_input:
+        print("No coins entered")
+        return 
+    
+    coinlist = user_input.split(',')
+
+    print(f"\n{'Name':<15} | {'Price ($)':<12} |{'24h change':<10} ")
+    print(f"{'-' * 45}")
+
+    for coin_name in coinlist:
+        clean_name = coin_name.strip().lower()
+
+        data = get_crypto_price(clean_name)
+        if data:
+            usd = data["quotes"]["USD"]
+            price = usd["price"]
+            change = usd["percent_change_24h"]
+
+            print(f"{data['name']:<15} | {price : >12,.2f} | {change:>+9.2f}%")
+        else:
+            print(f"{clean_name:<15} | {'Not Found':>12} {'---':>10}")
+
+    print(f"{'-' * 45}\n")
+
+def create_blog_post():
+    print("create a blog post")
+
+    title_input = input("Enter post title: ").strip()
+    body_input = input("Enter post content: ").strip()
+
+    if not title_input or not body_input:
+        print("error:Title and content cannot be empty")
+        return
+    
+    new_post_data = {
+        "title":title_input,
+        "body":body_input,
+        "userId":1
+    }
+
+    url = "https://jsonplaceholder.typicode.com/posts"
+
+    try:
+        print("\n Sending data to server")
+        response = requests.post(url,json = new_post_data,timeout = 10)
+
+        if response.status_code == 201:
+            print("\n Success! Server accepted the post")
+            print("Server Response: ")
+            print(response.json())
+        else:
+            print(f"Failed.Status Code: {response.status_code}")
+
+    except requests.RequestException as e:
+        print(f"Connection Error: {e}")
+
+def export_crypto_report():
+    print("Exporting Crypto Report")
+
+    data = get_top_cryptos(limit=10)
+
+    if not data:
+        print("NO data to save")
+        return 
+    
+    filename = "crypto_data.json"
+
+    try:
+        with open(filename,"w") as file:
+            json.dump(data,file,indent=4)
+
+        print(f"Success! Data saved to '{filename}")
+        print("   Check the file explorer on the left")
+
+    except Exception as e:
+        print(f"Error saving file: {e}")
+
+import os
+def get_secure_weather(city_name):
+    print(f"\n Secure weather check for {city_name}")
+
+    api_key = os.environ.get("OPENWEATHER_API_KEY")
+
+    if not api_key:
+        print("Error API key not found")
+        print("Please set the OPENWEATHER_API_KEY environment variable")
+        print("   (for this demo, we will simulate it below)")
+        return 
+    
+    url = "https://api.openweathermap.org/data/2.5/weather"
+    params = {"q":city_name,
+              "appid":api_key,
+              "units":"metric"}
+    
+    print(f"key found!Authenticating with key ending in....{api_key[-4:]}")
+
+    print(f"   (sumulated Request to {url})")
+    print(f"   (Params: city ={city_name},key = HIDDEN)")
+
 
 def dashboard():
     """Interactive dashboard combining weather and crypto."""
@@ -197,7 +306,11 @@ def dashboard():
         print("  2. Check Crypto Price")
         print("  3. View Top 5 Cryptos")
         print("  4. Quick Dashboard (Delhi + Bitcoin)")
-        print("  5. Exit")
+        print("  5. Compare price")
+        print("  6. export crypto report")
+        print("  7. create blog post")
+        print("  8. Get secure weather")
+        print("  9. Exit")
 
         choice = input("\nSelect (1-5): ").strip()
 
@@ -217,13 +330,31 @@ def dashboard():
         elif choice == "4":
             display_weather("delhi")
             display_crypto("bitcoin")
-
+        
         elif choice == "5":
+            price_compare()
+
+        elif choice == "6":
+            export_crypto_report()
+
+
+        elif choice == "7":
+            create_blog_post()
+
+        elif choice == "8":
+            os.environ["OPENWEATHER_API_KEY"] = "12345secretkey"
+
+            city = input("Enter city for secure check: ")
+            get_secure_weather(city)
+
+        elif choice == "9":
             print("\nGoodbye! Happy coding!")
             break
 
         else:
             print("Invalid option. Try again.")
+
+
 
 
 if __name__ == "__main__":
